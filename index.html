@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Jewelry that feels like you.</h1>
+  <p>Handpicked earrings, rings and necklaces for everyday and special days.</p>
+  <a class="btn" href="#shop">Shop the collection</a>
+</section>
+<section id="shop" class="wrap">
+  <h2>Our collection</h2>
+  <div class="grid">
+    {% for p in products %}
+    <div class="card">
+      <img class="product-image" src="{{ url_for('static', filename='images/' ~ p.image) }}" alt="{{ p.name }}">
+      <h3>{{ p.name }}</h3>
+      <p class="price">Rs {{ p.price }}</p>
+      <button class="btn add" data-id="{{ p.id }}" data-name="{{ p.name }}" data-price="{{ p.price }}">Add to Cart</button>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<section class="wrap" id="reviews">
+  <h2>What our customers say</h2>
+  <div class="grid">
+    {% for r in reviews %}
+    <div class="card review">
+      <p class="stars">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</p>
+      <p>{{ r.comment }}</p>
+      <h3>{{ r.name }}</h3>
+    </div>
+    {% endfor %}
+  </div>
+  <form id="review-form" class="narrow">
+    <h3>Share your experience</h3>
+    <input name="name" placeholder="Your name" required>
+    <select name="rating"><option value="5">5 stars</option><option value="4">4 stars</option><option value="3">3 stars</option><option value="2">2 stars</option><option value="1">1 star</option></select>
+    <textarea name="comment" placeholder="Write your review" required></textarea>
+    <button class="btn" type="submit">Submit review</button>
+  </form>
+</section>
+{% endblock %}
