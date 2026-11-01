@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Order - Fashion Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="order">
+<div id="nav"></div>
+<main>
+<section class="wrap narrow" id="order-page">
+  <h2>Your order</h2>
+  <div id="order-items"></div>
+  <p class="total">Total: Rs <span id="total">0</span></p>
+  <form id="order-form">
+    <input name="name" placeholder="Full name" required>
+    <input name="phone" placeholder="Phone number" required>
+    <textarea name="address" placeholder="Full delivery address" required></textarea>
+    <p class="note">Payment: Cash on Delivery</p>
+    <button class="btn" type="submit">Place order</button>
+  </form>
+</section>
+</main>
+<div id="foot"></div>
+<script src="app.js"></script>
+</body>
+</html>
